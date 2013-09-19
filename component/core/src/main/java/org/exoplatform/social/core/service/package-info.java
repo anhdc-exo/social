@@ -1,5 +1,5 @@
 /**
- * Provides the classes necessary to provide common information such as link in social system. 
+ * Provides the classes necessary to provide common information, such as links in Social. 
  *
  */
 package org.exoplatform.social.core.service;

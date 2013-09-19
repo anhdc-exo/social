@@ -33,7 +33,7 @@ import org.exoplatform.social.common.ResourceBundleUtil;
 import org.exoplatform.social.core.activity.model.ExoSocialActivity;
 
 /**
- * The <code>I18NActivityProcessor</code> class processes any i18n on activity to dynamic new activity with i18n title.
+ * Processes any i18n on activity to a dynamic new activity with the i18n title.
  * <p/>
  * How to I18N-ize an activity:
  * <ul>
@@ -90,7 +90,7 @@ public final class I18NActivityProcessor {
   /**
    * Registers an activity resource bundle plugin.
    *
-   * @param activityResourceBundlePlugin the activity resource bundle plugin.
+   * @param activityResourceBundlePlugin The activity resource bundle plugin.
    * @LevelAPI Platform
    */
   public void addActivityResourceBundlePlugin(ActivityResourceBundlePlugin activityResourceBundlePlugin) {
@@ -109,9 +109,9 @@ public final class I18NActivityProcessor {
   }
 
   /**
-   * Un-registers an existing registered resource bundle plugin.
+   * Unregisters an existing registered resource bundle plugin.
    *
-   * @param activityResourceBundlePlugin the existing activity resource bundle plugin.
+   * @param activityResourceBundlePlugin The existing activity resource bundle plugin.
    * @LevelAPI Platform
    */
   public void removeActivityResourceBundlePlugin(ActivityResourceBundlePlugin activityResourceBundlePlugin) {
@@ -132,7 +132,7 @@ public final class I18NActivityProcessor {
    *        
    * @param selectedLocale The target locale that activity will be localized.
    *
-   * @return the activity which content has been localized.
+   * @return The activity which content has been localized.
    * 
    * @LevelAPI Platform
    */
@@ -161,10 +161,10 @@ public final class I18NActivityProcessor {
   /**
    * Processes the I18N activity which means that activity.getTitleId() != null.
    *
-   * @param i18nActivity the I18N activity
-   * @param selectedLocale the selected locale
+   * @param i18nActivity The I18N activity
+   * @param selectedLocale The selected locale
    *
-   * @return the new activity with I18N title
+   * @return The new activity with I18N title
    * @LevelAPI Platform
    */
   public ExoSocialActivity processKeys(ExoSocialActivity i18nActivity, Locale selectedLocale) {
@@ -190,7 +190,7 @@ public final class I18NActivityProcessor {
   /**
    * Sets the external resource bundle service.
    *
-   * @param resourceBundleService the resource bundle service
+   * @param resourceBundleService The resource bundle service
    * @LevelAPI Platform
    */
   public void setResourceBundleService(ResourceBundleService resourceBundleService) {

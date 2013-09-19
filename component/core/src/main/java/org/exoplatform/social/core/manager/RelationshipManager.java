@@ -26,12 +26,13 @@ import org.exoplatform.social.core.relationship.model.Relationship;
 import org.exoplatform.social.core.storage.RelationshipStorageException;
 
 /**
- * The RelationshipManager is used to work with connections between identities:
- *
+ * Is used to work with connections between identities:
+ *  
+ * <p>
  * <ul>
- *   <li>Get relationship between 2 identities.</li>
- *   <li>Interact between identities: invite, confirm, deny, ignore.</li>
- *   <li>Get list access to get list of connections, incoming, outgoing.</li>
+ *   <li>Gets relationship between 2 identities.</li>
+ *   <li>Interacts between identities: invite, confirm, deny, ignore.</li>
+ *   <li>Gets list access to get list of connections, incoming, outgoing.</li>
  * </ul>
  */
 public interface RelationshipManager {

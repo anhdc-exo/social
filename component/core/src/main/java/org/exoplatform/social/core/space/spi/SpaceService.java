@@ -36,7 +36,7 @@ import org.exoplatform.social.core.space.model.Space;
 public interface SpaceService {
 
   /**
-   * Will be removed by 4.0.x
+   * Will be removed by 4.0.x.
    */
   @Deprecated
   final String SPACES_APP_ID = "exosocial:spaces";
@@ -315,10 +315,10 @@ public interface SpaceService {
   boolean isPendingUser(Space space, String userId);
 
   /**
-   * Adds a user to invited list to join a space.
+   * Adds a user to the invited list to join a space.
    *
-   * @param space  the existing space
-   * @param userId the remote user id
+   * @param space  The existing space
+   * @param userId The remote user Id
    * @LevelAPI Platform
    * @since 1.2.0-GA
    */
@@ -327,8 +327,8 @@ public interface SpaceService {
   /**
    * Removes a user from the invited list to join a space.
    *
-   * @param space  the existing space
-   * @param userId the remote user id
+   * @param space  The existing space
+   * @param userId The remote user Id
    * @LevelAPI Platform
    * @since 1.2.0-GA
    */
@@ -337,9 +337,9 @@ public interface SpaceService {
   /**
    * Checks if a user is in the invited list to join a space.
    *
-   * @param space  the existing space
-   * @param userId the remote user id
-   * @return TRUE for invited user; Otherwise FALSE
+   * @param space  The existing space
+   * @param userId The remote user Id
+   * @return TRUE for the invited user; Otherwise, FALSE
    * @LevelAPI Platform
    * @since 1.2.0-GA
    * 
@@ -347,10 +347,10 @@ public interface SpaceService {
   boolean isInvitedUser(Space space, String userId);
 
   /**
-   * Adds a user to a space, the user will get the "member" role in a space.
+   * Adds a user to a space. The user will get the "member" role in a space.
    *
-   * @param space  the existing space
-   * @param userId the remote user id
+   * @param space  The existing space
+   * @param userId The remote user Id
    * @LevelAPI Platform
    */
   void addMember(Space space, String userId);
@@ -358,28 +358,28 @@ public interface SpaceService {
   /**
    * Removes a member from a space.
    *
-   * @param space  the existing space
-   * @param userId the remote user id
+   * @param space The existing space
+   * @param userId The remote user Id
    * @LevelAPI Platform
    */
   void removeMember(Space space, String userId);
 
   /**
-   * Checks whether a user is a space's member or not.
+   * Checks whether a user is member of a space or not.
    *
-   * @param space  the existing space
-   * @param userId the remote user id
+   * @param space The existing space
+   * @param userId The remote user Id
    * @return TRUE if that user is a member; otherwise, FALSE
    * @LevelAPI Platform
    */
   boolean isMember(Space space, String userId);
 
   /**
-   * Adds a user to have the "manager" role in a space.
+   * Assigns the "manager" role to a user in a space.
    *
-   * @param space     the existing space
-   * @param userId    the remote user id
-   * @param isManager true or false to indicate a user will get "manager" role or not. If false, that user will get
+   * @param space The space where the user is assigned to become its manager
+   * @param userId The remote user Id
+   * @param isManager True or false to indicate a user will get "manager" role or not. If false, the user only gets the
    *                  "member" role.
    * @LevelAPI Platform
    * @since 1.2.0-GA
@@ -387,55 +387,55 @@ public interface SpaceService {
   void setManager(Space space, String userId, boolean isManager);
 
   /**
-   * Checks if a user has "manager" role in a space.
+   * Checks if a user has the "manager" role in a space.
    *
-   * @param space  the existing space
-   * @param userId the remote user id
-   * @return true or false
+   * @param space  The space where its user is checked if he has the "manager" role or not.
+   * @param userId The remote user Id
+   * @return True or false
    * @LevelAPI Platform
    * @since  1.2.0-GA
    */
   boolean isManager(Space space, String userId);
 
   /**
-   * Checks if a user is the only one who has "manager" role in a space.
+   * Checks if a user is the only one who has the "manager" role in a space.
    *
-   * @param space  the existing space
-   * @param userId the remote user id
-   * @return true if that user id is the only one who has "manager" role in a space. Otherwise, return false.
+   * @param space The space where its user is checked if he is the only manager or not
+   * @param userId The remote user Id
+   * @return True if the user Id is the only one who has "manager" role in the space. Otherwise, false is returned.
    * @LevelAPI Platform
    * @since  1.2.0-GA
    */
   boolean isOnlyManager(Space space, String userId);
 
   /**
-   * Checks if a user can access a space or not. If the user is root or the space's member, return true
+   * Checks if a user can access a space or not. If the user is root or the space's member, the "true" value is returned.
    *
-   * @param space  the existing space
-   * @param userId the remote user id
-   * @return true if access permission is allowed, otherwise, false.
+   * @param space The space where its user is checked if he can access a space
+   * @param userId The remote user Id
+   * @return True if the access permission is allowed. Otherwise, false is returned.
    * @LevelAPI Platform
    * 
    */
   boolean hasAccessPermission(Space space, String userId);
 
   /**
-   * Checks if a user can have setting permission to a space or not.
-   * <p/>
-   * If the user is root or the space's member, return true
+   * Checks if a user can have the setting permission to a space or not.
+   * <p/> 
+   * If the user is root or the space's member, the "true" value is returned.
    *
-   * @param space  the existing space
-   * @param userId the remote user id
-   * @return true if setting permission is allowed, otherwise, false.
+   * @param space The space where its user is checked if he has the setting permission or not.
+   * @param userId The remote user Id
+   * @return True if the setting permission is allowed. Otherwise, false is returned.
    * @LevelAPI Platform
    * @since  1.2.0-GA
    */
   boolean hasSettingPermission(Space space, String userId);
 
   /**
-   * Registers a space listener plugin to listen to space lifecyle events: create, update, install application, etc,.
+   * Registers a space listener plugin to listen to space lifecyle events: create, update, install application, and more.
    *
-   * @param spaceListenerPlugin a space listener plugin
+   * @param spaceListenerPlugin The space listener plugin
    * @LevelAPI Platform
    * @since 1.2.0-GA
    */
@@ -444,7 +444,7 @@ public interface SpaceService {
   /**
    * Unregisters an existing space listener plugin.
    *
-   * @param spaceListenerPlugin
+   * @param spaceListenerPlugin The space listener plugin to be unregistered.
    * @LevelAPI Platform
    * @since 1.2.0-GA
    */
@@ -453,9 +453,9 @@ public interface SpaceService {
   /**
    * Sets space application config plugin for configuring the home and space applications.
    * <p/>
-   * By configuring this, space service will know how to create a new page node with title, url, and portlet to use.
+   * By configuring this, the space service will know how to create a new page node with title, url and portlet.
    *
-   * @param spaceApplicationConfigPlugin space application config plugin
+   * @param spaceApplicationConfigPlugin The space application config plugin
    * @LevelAPI Platform
    * @since 1.2.0-GA
    */
@@ -464,7 +464,7 @@ public interface SpaceService {
   /**
    * Gets the configured space application config plugin.
    *
-   * @return the configured space application config plugin
+   * @return The configured space application config plugin
    * @LevelAPI Platform
    */
   SpaceApplicationConfigPlugin getSpaceApplicationConfigPlugin();
@@ -472,11 +472,11 @@ public interface SpaceService {
   /**
    * Gets all spaces in Social.
    *
-   * @return list of spaces in Social
+   * @return List of spaces in Social
    * @throws SpaceException with code SpaceException.Code.ERROR_DATASTORE
    * @LevelAPI Provisional
    * @deprecated Use {@link #getAllSpacesWithListAccess()} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   List<Space> getAllSpaces() throws SpaceException;
@@ -484,8 +484,8 @@ public interface SpaceService {
   /**
    * Gets a space by its space name.
    *
-   * @param spaceName space name
-   * @return the stored space
+   * @param spaceName The space name
+   * @return The stored space
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link SpaceService#getSpaceByPrettyName(String)} instead.
@@ -494,60 +494,60 @@ public interface SpaceService {
   public Space getSpaceByName(String spaceName) throws SpaceException;
 
   /**
-   * Gets all spaces has the name starting with the input character.
+   * Gets all spaces which have the name starting with the input character.
    *
-   * @return all spaces which have first character of name matched the input string.
+   * @return All spaces with their first character matching with the input string.
    * @throws SpaceException with code SpaceException.Code.ERROR_DATASTORE
    * @LevelAPI Provisional
    * @deprecated Use {@link #getAllSpacesByFilter(org.exoplatform.social.core.space.SpaceFilter)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   List<Space> getSpacesByFirstCharacterOfName(String firstCharacterOfName) throws SpaceException;
 
   /**
-   * Gets all spaces which has name or description that match input condition.
+   * Gets all spaces which have the name or description matching with the input condition.
    *
-   * @param condition the input condition
-   * @return a list of spaces
+   * @param condition The input condition
+   * @return List of spaces
    * @throws Exception
    * @LevelAPI Provisional
    * @deprecated Use {@link #getAllSpacesByFilter(org.exoplatform.social.core.space.SpaceFilter)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   List<Space> getSpacesBySearchCondition(String condition) throws Exception;
 
   /**
-   * Gets spaces of a user in which that user is a member.
+   * Gets spaces of a user in which the user is a member.
    *
    * @param userId Id of user
-   * @return all spaces of a user in which the user is a member
+   * @return All spaces where the user is a member.
    * @throws SpaceException with code SpaceException.Code.ERROR_DATASTORE
    * @LevelAPI Provisional
    * @deprecated Use {@link #getMemberSpaces(String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   List<Space> getSpaces(String userId) throws SpaceException;
 
   /**
-   * Gets spaces of a user which that user has the access permission.
+   * Gets spaces where a user has the access permission.
    *
-   * @param userId
-   * @return list of spaces
+   * @param userId Id of user
+   * @return List of spaces
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #getAccessibleSpacesWithListAccess(String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   List<Space> getAccessibleSpaces(String userId) throws SpaceException;
 
   /**
-   * Gets spaces of a user which that user can see the visible spaces.
+   * Gets spaces which a user can see.
    *
-   * @param userId
-   * @param spaceFilter
-   * @return list of spaces
+   * @param userId Id of user
+   * @param spaceFilter Condition by which spaces are filtered
+   * @return List of spaces
    * @throws SpaceException
    * @LevelAPI Platform
    * @since 1.2.5-GA
@@ -555,74 +555,74 @@ public interface SpaceService {
   public List<Space> getVisibleSpaces(String userId, SpaceFilter spaceFilter) throws SpaceException;
   
   /**
-   * Gets spaces of a user which that user can see the visible spaces.
-   * @param userId
-   * @param spaceFilter
-   * @return list of spaces
+   * Gets spaces which a user can see.
+   * @param userId Id of user
+   * @param spaceFilter Condition by which spaces are filtered
+   * @return List of spaces
    * @LevelAPI Platform
    * @since 1.2.5-GA
    */
   public SpaceListAccess getVisibleSpacesWithListAccess(String userId, SpaceFilter spaceFilter);
   
   /**
-   * Provides Unified Search feature to get these spaces of a user which that user can see the visible spaces.
-   * @param userId
-   * @param spaceFilter
-   * @return list of spaces
+   * Provides the Unified Search feature to get spaces which a user can see.
+   * @param userId Id of user
+   * @param spaceFilter Condition by which spaces are filtered
+   * @return List of spaces
    * @LevelAPI Platform
    * @since 4.0.0-GA
    */
   public SpaceListAccess getUnifiedSearchSpacesWithListAccess(String userId, SpaceFilter spaceFilter);
   
   /**
-   * Gets spaces of a user which that user has the edit permission.
+   * Gets spaces where a user has the edit permission.
    *
-   * @param userId
-   * @return list of space
+   * @param userId Id of user
+   * @return List of space
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #getSettingableSpaces(String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   List<Space> getEditableSpaces(String userId) throws SpaceException;
 
   /**
-   * Gets a user's invited spaces and that user can accept or deny the request.
+   * Gets all spaces where a user is invited and can accept or deny requests.
    *
-   * @param userId
-   * @return spaces list of all user's invited spaces
+   * @param userId Id of user
+   * @return List of spaces where a user is invited
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #getInvitedSpacesWithListAccess(String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   List<Space> getInvitedSpaces(String userId) throws SpaceException;
 
 
   /**
-   * Gets a user's public spaces and that user can request to join.
+   * Gets public spaces which a user can request to join.
    *
    * @param userId Id of user
-   * @return spaces list in which the user can request to join
+   * @return List of spaces where the user can request to join
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #getPublicSpacesWithListAccess(String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   List<Space> getPublicSpaces(String userId) throws SpaceException;
 
   /**
-   * Gets a user's pending spaces and that the user can revoke that request.
+   * Gets pending spaces which the user can revoke requests.
    *
-   * @param userId
-   * @return spaces list in which the user can revoke that request
+   * @param userId Id of user
+   * @return List of pending spaces
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #getPendingSpacesWithListAccess(String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   List<Space> getPendingSpaces(String userId) throws SpaceException;
@@ -630,10 +630,10 @@ public interface SpaceService {
   /**
    * Creates a new space and invites all users from invitedGroupId to join this newly created space.
    *
-   * @param space
-   * @param creator
-   * @param invitedGroupId
-   * @return space
+   * @param space The space to be created
+   * @param creator The user who creates the space
+   * @param invitedGroupId Id of group who is invited to join the space
+   * @return A space
    * @throws SpaceException with possible code SpaceException.Code.SPACE_ALREADY_EXIST; UNABLE_TO_ADD_CREATOR
    * @LevelAPI Platform
    */
@@ -642,20 +642,20 @@ public interface SpaceService {
   /**
    * Saves a new space or updates a space.
    *
-   * @param space space is saved
-   * @param isNew true if creating a new space; otherwise, update an existing space.
+   * @param space Space to be saved or updated
+   * @param isNew True if a new space is created; otherwise, false if an existing space is updated.
    * @throws SpaceException with code: SpaceException.Code.ERROR_DATASTORE
    * @LevelAPI Provisional
    * @deprecated Use {@link #updateSpace(org.exoplatform.social.core.space.model.Space)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   void saveSpace(Space space, boolean isNew) throws SpaceException;
 
   /**
    * Renames a space.
    * 
-   * @param space the existing space
-   * @param newDisplayName  new display name
+   * @param space A space to be renamed
+   * @param newDisplayName New name of the space
    * @throws SpaceException
    * @LevelAPI Platform
    * @since 1.2.8
@@ -663,11 +663,11 @@ public interface SpaceService {
   void renameSpace(Space space, String newDisplayName) throws SpaceException;
   
   /**
-   * Renames a space by identity who has right as super admin role
+   * Renames a space by identity who has right as super admin role.
    * 
-   * @param remoteId who made rename space
-   * @param space the existing space
-   * @param newDisplayName  new display name
+   * @param remoteId Identity who has renamed a space.
+   * @param space The space to be renamed
+   * @param newDisplayName  New name of the renamed space
    * @throws SpaceException
    * @LevelAPI Platform
    * @since 4.0.0
@@ -675,13 +675,13 @@ public interface SpaceService {
   void renameSpace(String remoteId, Space space, String newDisplayName) throws SpaceException;
   
   /**
-   * Deletes a space by its id.
+   * Deletes a space by its Id.
    *
-   * @param spaceId
+   * @param spaceId Id of a deleted space
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #deleteSpace(org.exoplatform.social.core.space.model.Space)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   void deleteSpace(String spaceId) throws SpaceException;
@@ -692,7 +692,7 @@ public interface SpaceService {
    * @param space the space
    * @throws SpaceException with code SpaceException.Code.UNABLE_INIT_APP
    * @LevelAPI Provisional
-   * @deprecated Will be removed by 4.0.x
+   * @deprecated Will be removed by 4.0.x.
    */
   @Deprecated
   void initApp(Space space) throws SpaceException;
@@ -703,7 +703,7 @@ public interface SpaceService {
    * @param space Space
    * @throws SpaceException with code SpaceException.Code.UNABLE_INIT_APP
    * @LevelAPI Provisional
-   * @deprecated Will be removed by 4.0.x
+   * @deprecated Will be removed by 4.0.x.
    */
   @Deprecated
   void initApps(Space space) throws SpaceException;
@@ -714,7 +714,7 @@ public interface SpaceService {
    * @param space the space
    * @throws SpaceException
    * @LevelAPI Provisional
-   * @deprecated Will be removed by 4.0.x
+   * @deprecated Will be removed by 4.0.x.
    */
   @Deprecated
   void deInitApps(Space space) throws SpaceException;
@@ -727,7 +727,7 @@ public interface SpaceService {
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #addMember(org.exoplatform.social.core.space.model.Space, String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   void addMember(String spaceId, String userId) throws SpaceException;
@@ -740,39 +740,39 @@ public interface SpaceService {
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #removeMember(org.exoplatform.social.core.space.model.Space, String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   void removeMember(String spaceId, String userId) throws SpaceException;
 
   /**
-   * Gets a list of the space members from a space.
+   * Gets a list of space members from a space.
    *
    * @param space
    * @return list of space members
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link Space#getMembers()} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   List<String> getMembers(Space space) throws SpaceException;
 
   /**
-   * Gets a list of the space members from a space.
+   * Gets a list of space members from a space.
    *
    * @param spaceId
    * @return a list of the space members
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link Space#getMembers()} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   List<String> getMembers(String spaceId) throws SpaceException;
 
   /**
-   * Sets a member of a space as a manager.
+   * Sets a space member as a manager.
    *
    * @param space
    * @param userId
@@ -780,13 +780,13 @@ public interface SpaceService {
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #setManager(org.exoplatform.social.core.space.model.Space, String, boolean)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   void setLeader(Space space, String userId, boolean isLeader) throws SpaceException;
 
   /**
-   * Sets a member of a space as a manager.
+   * Sets a space member as a manager.
    *
    * @param spaceId
    * @param userId
@@ -794,7 +794,7 @@ public interface SpaceService {
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #setManager(org.exoplatform.social.core.space.model.Space, String, boolean)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   void setLeader(String spaceId, String userId, boolean isLeader) throws SpaceException;
@@ -808,7 +808,7 @@ public interface SpaceService {
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #isManager(org.exoplatform.social.core.space.model.Space, String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   boolean isLeader(Space space, String userId) throws SpaceException;
@@ -822,7 +822,7 @@ public interface SpaceService {
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #isManager(org.exoplatform.social.core.space.model.Space, String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   boolean isLeader(String spaceId, String userId) throws SpaceException;
@@ -836,7 +836,7 @@ public interface SpaceService {
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #isOnlyManager(org.exoplatform.social.core.space.model.Space, String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   boolean isOnlyLeader(Space space, String userId) throws SpaceException;
@@ -850,7 +850,7 @@ public interface SpaceService {
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #isOnlyManager(org.exoplatform.social.core.space.model.Space, String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   boolean isOnlyLeader(String spaceId, String userId) throws SpaceException;
@@ -864,7 +864,7 @@ public interface SpaceService {
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #isMember(org.exoplatform.social.core.space.model.Space, String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   boolean isMember(String spaceId, String userId) throws SpaceException;
@@ -879,14 +879,14 @@ public interface SpaceService {
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #hasAccessPermission(org.exoplatform.social.core.space.model.Space, String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   boolean hasAccessPermission(String spaceId, String userId) throws SpaceException;
 
   /**
-   * Checks if a user can have the edit permission of a space or not.
-   * If user is root or the space's manager, return true.
+   * Checks if a user can have the edit permission in a space or not.
+   * If user is root or the space's manager, "true" is returned.
    *
    * @param space Provided space
    * @param userId Id of user (user remoteId)
@@ -894,21 +894,21 @@ public interface SpaceService {
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #hasSettingPermission(org.exoplatform.social.core.space.model.Space, String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   boolean hasEditPermission(Space space, String userId) throws SpaceException;
 
   /**
-   * Checks if a user can have edit permission of a space.
-   * If user is root or the space's manager, return true
+   * Checks if a user can have the edit permission in a space.
+   * If user is root or the space's manager, "true" is returned.
    * @param spaceId Id of space
    * @param userId Id of user (remoteId)
    * @return True if user has edition permission and vice-versa
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #hasSettingPermission(org.exoplatform.social.core.space.model.Space, String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   boolean hasEditPermission(String spaceId, String userId) throws SpaceException;
@@ -922,7 +922,7 @@ public interface SpaceService {
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #isInvitedUser(org.exoplatform.social.core.space.model.Space, String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   boolean isInvited(Space space, String userId) throws SpaceException;
@@ -936,7 +936,7 @@ public interface SpaceService {
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #isInvitedUser(org.exoplatform.social.core.space.model.Space, String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   boolean isInvited(String spaceId, String userId) throws SpaceException;
@@ -950,7 +950,7 @@ public interface SpaceService {
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #isPendingUser(org.exoplatform.social.core.space.model.Space, String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   boolean isPending(Space space, String userId) throws SpaceException;
@@ -960,11 +960,11 @@ public interface SpaceService {
    *
    * @param spaceId
    * @param userId
-   * @return true if that user is in the pending list; otherwise, false
+   * @return True if that user is in the pending list; otherwise, false
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #isPendingUser(org.exoplatform.social.core.space.model.Space, String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   boolean isPending(String spaceId, String userId) throws SpaceException;
@@ -972,8 +972,8 @@ public interface SpaceService {
   /**
    * Installs an application to a space.
    *
-   * @param spaceId
-   * @param appId
+   * @param spaceId Id of space where an application is installed
+   * @param appId If of application to be installed
    * @throws SpaceException with code SpaceException.Code.ERROR_DATA_STORE
    * @LevelAPI Platform
    */
@@ -982,8 +982,8 @@ public interface SpaceService {
   /**
    * Installs an application to a space.
    *
-   * @param space
-   * @param appId
+   * @param space A space where an application is installed
+   * @param appId If of application to be installed
    * @throws SpaceException with code SpaceException.Code.ERROR_DATA_STORE
    * @LevelAPI Platform
    */
@@ -992,8 +992,8 @@ public interface SpaceService {
   /**
    * Activates an installed application in a space.
    *
-   * @param space
-   * @param appId
+   * @param space A space where an installed application is activated
+   * @param appId Id of installed application
    * @throws SpaceException with possible code: SpaceException.Code.UNABLE_TO_ADD_APPLICATION,
    *                                            SpaceExeption.Code.ERROR_DATA_STORE
    * @LevelAPI Platform
@@ -1003,8 +1003,8 @@ public interface SpaceService {
   /**
    * Activates an installed application in a space.
    *
-   * @param spaceId
-   * @param appId
+   * @param spaceId Id of space where an installed application is activated
+   * @param appId Id of an installed application
    * @throws SpaceException with possible code: SpaceException.Code.UNABLE_TO_ADD_APPLICATION,
    *                                            SpaceExeption.Code.ERROR_DATA_STORE
    * @LevelAPI Platform
@@ -1014,8 +1014,8 @@ public interface SpaceService {
   /**
    * Deactivates an installed application in a space.
    *
-   * @param space
-   * @param appId
+   * @param space A space where an installed application is deactivated
+   * @param appId Id of an installed application
    * @throws SpaceException
    * @LevelAPI Platform
    */
@@ -1024,8 +1024,8 @@ public interface SpaceService {
   /**
    * Deactivates an installed application in a space.
    *
-   * @param spaceId
-   * @param appId
+   * @param spaceId Id of a space where an installed application is deactivated
+   * @param appId Id of an installed application
    * @throws SpaceException
    * @LevelAPI Platform
    */
@@ -1034,8 +1034,8 @@ public interface SpaceService {
   /**
    * Removes an installed application from a space.
    *
-   * @param space
-   * @param appId
+   * @param space A space where an installed application is removed
+   * @param appId Id of installed application
    * @throws SpaceException
    * @LevelAPI Platform
    */
@@ -1044,77 +1044,77 @@ public interface SpaceService {
   /**
    * Removes an installed application from a space.
    *
-   * @param spaceId
-   * @param appId
+   * @param spaceId Id of a space where an installed application is removed
+   * @param appId Id of an installed application
    * @LevelAPI Platform
    */
   void removeApplication(String spaceId, String appId, String appName) throws SpaceException;
   
   /**
-   * Update accessed space to top of space members list of Identity model
+   * Updates the most recently accessed space of a user to top of spaces list.
    *
-   * @param remoteId
-   * @param space
+   * @param remoteId The remote Id of user
+   * @param space The last accessed space of the user
    * @LevelAPI Platform
    */
   void updateSpaceAccessed(String remoteId, Space space) throws SpaceException;
   
   /**
-   * Gets list of spaces which user has been last visited.
+   * Gets a list of the most recently accessed spaces of a user.
    *
-   * @param remoteId
-   * @param appId
-   * @param offset
-   * @param limit
+   * @param remoteId The remote Id of user
+   * @param appId Id of an installed in a space
+   * @param offset The starting point to get the most recently accessed spaces 
+   * @param limit The ending point to get the most recently accessed spaces
    * @LevelAPI Platform
    */
   List<Space> getLastAccessedSpace(String remoteId, String appId, int offset, int limit) throws SpaceException;
   
   /**
-   * Gets list of spaces which user has been last visited.
+   * Gets a list of the most recently accessed spaces of a user.
    *
-   * @param remoteId
-   * @param appId
+   * @param remoteId The remote Id of a user 
+   * @param appId Id of an installed in a space
    * @LevelAPI Platform
    */
   ListAccess<Space> getLastAccessedSpace(String remoteId, String appId);
   
 
   /**
-   * Requests a user to join a space, adds that user to the pending list of the space.
+   * Requests a user to join a space, adds the user to the list of pending spaces.
    *
    * @param space
    * @param userId
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #addPendingUser(org.exoplatform.social.core.space.model.Space, String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   void requestJoin(Space space, String userId) throws SpaceException;
 
   /**
-   * Requests a user to join a space, adds that user to the pending list of the space.
+   * Requests a user to join a space, adds the user to the list of pending spaces.
    *
    * @param spaceId
    * @param userId
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #addPendingUser(org.exoplatform.social.core.space.model.Space, String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   void requestJoin(String spaceId, String userId) throws SpaceException;
 
   /**
-   * Revokes a join request after users request to join a group and is in the pending status.
+   * Revokes a join request after a user requests to join a group and is in the pending status.
    *
    * @param space
    * @param userId
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #removePendingUser(org.exoplatform.social.core.space.model.Space, String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   void revokeRequestJoin(Space space, String userId) throws SpaceException;
@@ -1127,7 +1127,7 @@ public interface SpaceService {
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #removePendingUser(org.exoplatform.social.core.space.model.Space, String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   void revokeRequestJoin(String spaceId, String userId) throws SpaceException;
@@ -1140,7 +1140,7 @@ public interface SpaceService {
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #addInvitedUser(org.exoplatform.social.core.space.model.Space, String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   void inviteMember(Space space, String userId) throws SpaceException;
@@ -1153,7 +1153,7 @@ public interface SpaceService {
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #addInvitedUser(org.exoplatform.social.core.space.model.Space, String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   void inviteMember(String spaceId, String userId) throws SpaceException;
@@ -1167,7 +1167,7 @@ public interface SpaceService {
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #removeInvitedUser(org.exoplatform.social.core.space.model.Space, String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   void revokeInvitation(Space space, String userId) throws SpaceException;
@@ -1181,7 +1181,7 @@ public interface SpaceService {
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #removeInvitedUser(org.exoplatform.social.core.space.model.Space, String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   void revokeInvitation(String spaceId, String userId) throws SpaceException;
@@ -1194,7 +1194,7 @@ public interface SpaceService {
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #addMember(org.exoplatform.social.core.space.model.Space, String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   void acceptInvitation(Space space, String userId) throws SpaceException;
@@ -1207,7 +1207,7 @@ public interface SpaceService {
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #addMember(org.exoplatform.social.core.space.model.Space, String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   void acceptInvitation(String spaceId, String userId) throws SpaceException;
@@ -1220,7 +1220,7 @@ public interface SpaceService {
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #removeInvitedUser(org.exoplatform.social.core.space.model.Space, String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   void denyInvitation(Space space, String userId) throws SpaceException;
@@ -1233,7 +1233,7 @@ public interface SpaceService {
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #removeInvitedUser(org.exoplatform.social.core.space.model.Space, String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   void denyInvitation(String spaceId, String userId) throws SpaceException;
@@ -1246,7 +1246,7 @@ public interface SpaceService {
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #addMember(org.exoplatform.social.core.space.model.Space, String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   void validateRequest(Space space, String userId) throws SpaceException;
@@ -1259,7 +1259,7 @@ public interface SpaceService {
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #addMember(org.exoplatform.social.core.space.model.Space, String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   void validateRequest(String spaceId, String userId) throws SpaceException;
@@ -1272,7 +1272,7 @@ public interface SpaceService {
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #removePendingUser(org.exoplatform.social.core.space.model.Space, String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   void declineRequest(Space space, String userId) throws SpaceException;
@@ -1285,7 +1285,7 @@ public interface SpaceService {
    * @throws SpaceException
    * @LevelAPI Provisional
    * @deprecated Use {@link #removePendingUser(org.exoplatform.social.core.space.model.Space, String)} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   void declineRequest(String spaceId, String userId) throws SpaceException;
@@ -1295,7 +1295,7 @@ public interface SpaceService {
    *
    * @param listener
    * @LevelAPI Provisional
-   * @deprecated Will be removed by 4.0.x
+   * @deprecated Will be removed by 4.0.x.
    */
   @Deprecated
   void registerSpaceLifeCycleListener(SpaceLifeCycleListener listener);
@@ -1305,7 +1305,7 @@ public interface SpaceService {
    *
    * @param listener
    * @LevelAPI Provisional
-   * @deprecated Will be removed by 4.0.x
+   * @deprecated Will be removed by 4.0.x.
    */
   @Deprecated
   void unregisterSpaceLifeCycleListener(SpaceLifeCycleListener listener);
@@ -1317,16 +1317,16 @@ public interface SpaceService {
    * @param portletPrefsRequiredPlugin
    * @LevelAPI Provisional
    * @deprecated Use {@link SpaceApplicationConfigPlugin} instead.
-   *             Will be removed by 4.0.x
+   *             Will be removed by 4.0.x.
    */
   @Deprecated
   void setPortletsPrefsRequired(PortletPreferenceRequiredPlugin portletPrefsRequiredPlugin);
   /**
-   * Gets the portlet preferences required to use in creating the portlet application.
+   * Gets the portlet preferences which are required for creating the portlet application.
    *
    * @return Array of Portlet preferences.
    * @LevelAPI Provisional
-   * @deprecated Will be removed by 4.0.x
+   * @deprecated Will be removed by 4.0.x.
    */
   String [] getPortletsPrefsRequired();
 
