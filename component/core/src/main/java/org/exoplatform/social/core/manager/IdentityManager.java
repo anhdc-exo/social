@@ -51,6 +51,15 @@ public interface IdentityManager {
    * @LevelAPI Platform 
    */
   Identity getOrCreateIdentity(String providerId, String remoteId, boolean isProfileLoaded);
+  
+  /**
+   * Gets an Identity object provided by userId of current user login. Without Profile information.
+   *
+   * @param remoteId The userId of current user login.
+   * @return the Identity that only matched provided information.
+   * @LevelAPI Platform 
+   */
+  Identity getUserIdentity(String remoteId);
 
   /**
    * Gets the stored identity by its id, this id is its uuid stored by JCR.

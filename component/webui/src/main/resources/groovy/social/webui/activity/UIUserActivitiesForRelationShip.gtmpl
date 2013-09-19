@@ -33,7 +33,6 @@
   def labelActivityHasBeenDeleted = _ctx.appRes("UIActivity.label.Activity_Has_Been_Deleted");
   def activity = uicomponent.getActivity();
   def activityDeletable = uicomponent.isActivityDeletable();
-  def activityCommentAndLikable = uicomponent.isActivityCommentAndLikable();
   def streamOwner = activity.getStreamOwner();
 %>
 
@@ -196,7 +195,6 @@
 					 <% def toggleDisplayCommentAction = uicomponent.event('ToggleDisplayCommentForm', null, false);
 								 def commentLink = "";
 							  %> 
-					 <% if (activityCommentAndLikable) { %>					 
 					<ul class="pull-right statusAction">
 						<li>
 							<a class="$commentLink"  id="CommentLink${activity.id}" href="javascript:void(0);">
@@ -217,7 +215,6 @@
 						</li>
 					  <% }%>					  			
 					</ul>
-					 <% }%>		
 			</div><!--end actionBar-->					
 			<% if (identityLikesNum > 0 || uicomponent.isLiked()) {%>				
 			<div class="listLikedBox $listPeopleBGClass">		

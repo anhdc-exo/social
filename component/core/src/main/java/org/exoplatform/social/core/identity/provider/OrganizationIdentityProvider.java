@@ -99,13 +99,15 @@ public class OrganizationIdentityProvider extends IdentityProvider<User> {
   public User findByRemoteId(String remoteId) {
     User user;
     try {
-      RequestLifeCycle.begin((ComponentRequestLifecycle)organizationService);
+      //RequestLifeCycle.begin((ComponentRequestLifecycle)organizationService);
+      //because UserDAOImpl#getPopulatedUser invokes orgService.flush(); then don't need above command.
       UserHandler userHandler = organizationService.getUserHandler();
       user = userHandler.findUserByName(remoteId);
     } catch (Exception e) {
       return null;
     } finally {
-      RequestLifeCycle.end();
+      //RequestLifeCycle.end();
+      //because UserDAOImpl#getPopulatedUser invokes orgService.flush(); then don't need above command.
     }
     return user;
   }

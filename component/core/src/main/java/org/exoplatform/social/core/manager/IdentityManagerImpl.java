@@ -32,6 +32,7 @@ import org.exoplatform.social.core.identity.SpaceMemberFilterListAccess;
 import org.exoplatform.social.core.identity.SpaceMemberFilterListAccess.Type;
 import org.exoplatform.social.core.identity.model.Identity;
 import org.exoplatform.social.core.identity.model.Profile;
+import org.exoplatform.social.core.identity.provider.OrganizationIdentityProvider;
 import org.exoplatform.social.core.profile.ProfileFilter;
 import org.exoplatform.social.core.profile.ProfileLifeCycle;
 import org.exoplatform.social.core.profile.ProfileListener;
@@ -318,6 +319,17 @@ public class IdentityManagerImpl implements IdentityManager {
    */
   public Identity getOrCreateIdentity(String providerId, String remoteId) {
     return getOrCreateIdentity(providerId, remoteId, true);
+  }
+  
+  /**
+   * {@inheritDoc}
+   */
+  public Identity getUserIdentity(String remoteId) {
+    Identity result = getIdentityStorage().findIdentity(OrganizationIdentityProvider.NAME, remoteId);
+    if (result == null) {
+      return getOrCreateIdentity(OrganizationIdentityProvider.NAME, remoteId, true);
+    }
+    return result;
   }
 
   /**

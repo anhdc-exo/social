@@ -149,6 +149,16 @@ public class Utils {
   public static Identity getViewerIdentity() {
     return getUserIdentity(getViewerRemoteId(), false);
   }
+  
+  /**
+   * Gets identity of viewer user (logged-in user). Do not load profile.
+   *
+   * @return identity
+   * @since 4.0.x
+   */
+  public static Identity getViewerUserIdentity() {
+    return getIdentityManager().getUserIdentity(getViewerRemoteId());
+  }
 
   /**
    * Gets identity from the remote id (user name)

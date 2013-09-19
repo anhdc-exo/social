@@ -25,6 +25,7 @@ import org.exoplatform.portal.webui.container.UIContainer;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.social.core.activity.model.ExoSocialActivity;
+import org.exoplatform.social.core.identity.model.Identity;
 import org.exoplatform.social.core.space.model.Space;
 import org.exoplatform.social.webui.Utils;
 import org.exoplatform.social.webui.composer.PopupContainer;
@@ -137,8 +138,9 @@ public class UIActivitiesContainer extends UIContainer {
     PortalContainer portalContainer = PortalContainer.getInstance();
     UIActivityFactory factory = (UIActivityFactory) portalContainer.getComponentInstanceOfType(UIActivityFactory.class);
 
+    Identity viewerIdentity = Utils.getViewerUserIdentity();
     for (ExoSocialActivity activity : activityList) {
-      factory.addChild(activity, this);
+      factory.addChild(activity, this).setViewerId(viewerIdentity);
     }
 
     lastVisited = getLastVisited(this.selectedDisplayMode);

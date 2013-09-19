@@ -96,6 +96,7 @@ public class BaseUIActivity extends UIForm {
   private CommentStatus commentListStatus = CommentStatus.LATEST;
   private boolean allCommentsHidden = false;
   private boolean commentFormFocused = false;
+  private Identity viewerIdentity;
 
   private static final String HTML_ATTRIBUTE_TITLE = "title";
   
@@ -401,7 +402,7 @@ public class BaseUIActivity extends UIForm {
   }
 
   protected void saveComment(String remoteUser, String message) throws Exception {
-    ExoSocialActivity comment = new ExoSocialActivityImpl(Utils.getViewerIdentity().getId(),
+    ExoSocialActivity comment = new ExoSocialActivityImpl(this.viewerIdentity.getId(),
             SpaceService.SPACES_APP_ID, message, null);
     Utils.getActivityManager().saveComment(getActivity(), comment);
     activityCommentsListAccess = Utils.getActivityManager().getCommentsWithListAccess(getActivity());
@@ -411,7 +412,6 @@ public class BaseUIActivity extends UIForm {
   }
 
   protected void setLike(boolean isLiked, String remoteUser) throws Exception {
-    Identity viewerIdentity = Utils.getViewerIdentity();
     activity.setBody(null);
     activity.setTitle(null);
     if (isLiked) {
@@ -431,7 +431,14 @@ public class BaseUIActivity extends UIForm {
    * @throws Exception
    */
   public boolean isLiked() throws Exception {
-    return ArrayUtils.contains(identityLikes, Utils.getViewerIdentity().getId());
+    return ArrayUtils.contains(identityLikes, viewerIdentity.getId());
+  }
+
+  /**
+   * @param viewerId the viewerId to set
+   */
+  public void setViewerId(Identity viewerIdentity) {
+    this.viewerIdentity = viewerIdentity;
   }
 
   /**
@@ -451,19 +458,11 @@ public class BaseUIActivity extends UIForm {
   }
   
   public boolean isUserActivity() {
-    boolean isUserActivity = false;
-    if (getOwnerIdentity() != null) {
-      isUserActivity = getOwnerIdentity().getProviderId().equals(OrganizationIdentityProvider.NAME);
-    }
-    return isUserActivity;
+    return getOwnerIdentity() != null ? getOwnerIdentity().getProviderId().equals(OrganizationIdentityProvider.NAME) : false;
   }
   
   public boolean isSpaceActivity() {
-    boolean isSpaceActivity = false;
-    if (getOwnerIdentity() != null) {
-      isSpaceActivity = getOwnerIdentity().getProviderId().equals(SpaceIdentityProvider.NAME);
-    }
-    return isSpaceActivity;
+    return getOwnerIdentity() != null ? getOwnerIdentity().getProviderId().equals(SpaceIdentityProvider.NAME) : false;
   }  
 
   public boolean isActivityDeletable() throws SpaceException {
@@ -471,7 +470,7 @@ public class BaseUIActivity extends UIForm {
     PostContext postContext = uiActivitiesContainer.getPostContext();
     SpaceService spaceService = getApplicationComponent(SpaceService.class);
     
-    if (Utils.getViewerIdentity().equals(getOwnerIdentity())) {
+    if (viewerIdentity.getId().equals(getOwnerIdentity().getId())) {
       return true;
     }
     
@@ -488,33 +487,13 @@ public class BaseUIActivity extends UIForm {
     }
     
     if ( space != null ){ 
-      return spaceService.isManager(space, Utils.getOwnerRemoteId());
+      return spaceService.isManager(space, viewerIdentity.getRemoteId());
     }
     
     return false;
   }
 
   public boolean isActivityCommentAndLikable() throws Exception {
-    UIActivitiesContainer uiActivitiesContainer = getAncestorOfType(UIActivitiesContainer.class);
-    PostContext postContext = uiActivitiesContainer.getPostContext();
-    
-    //
-    if (postContext == PostContext.USER) {
-      //base on SOC-3117
-//      UIUserActivitiesDisplay uiUserActivitiesDisplay = getAncestorOfType(UIUserActivitiesDisplay.class);
-//      if (uiUserActivitiesDisplay != null && !uiUserActivitiesDisplay.isActivityStreamOwner()) {
-//        String ownerName = uiUserActivitiesDisplay.getOwnerName();
-//        Identity ownerIdentity = Utils.getIdentityManager().
-//                getOrCreateIdentity(OrganizationIdentityProvider.NAME, ownerName, false);
-//        Relationship relationship = Utils.getRelationshipManager().get(ownerIdentity, Utils.getViewerIdentity());
-//        if (relationship == null) {
-//          return false;
-//        } else if (!(relationship.getStatus() == Type.CONFIRMED)) {
-//          return false;
-//        }
-//      }
-      return true;
-    }
     return true;
   }
   
@@ -534,7 +513,7 @@ public class BaseUIActivity extends UIForm {
         String ownerName = uiUserActivitiesDisplay.getOwnerName();
         Identity ownerIdentity = Utils.getIdentityManager().
                 getOrCreateIdentity(OrganizationIdentityProvider.NAME, ownerName, false);
-        Relationship relationship = Utils.getRelationshipManager().get(ownerIdentity, Utils.getViewerIdentity());
+        Relationship relationship = Utils.getRelationshipManager().get(ownerIdentity, this.viewerIdentity);
         if (relationship == null) {
           return false;
         } else if (!(relationship.getStatus() == Type.CONFIRMED)) {
@@ -549,13 +528,13 @@ public class BaseUIActivity extends UIForm {
     UIActivitiesContainer uiActivitiesContainer = getAncestorOfType(UIActivitiesContainer.class);
     PostContext postContext = uiActivitiesContainer.getPostContext();
     try {
-      if (Utils.getViewerIdentity().getId().equals(activityUserId)) {
+      if (viewerIdentity.getId().equals(activityUserId)) {
         return true;
       }
       if (postContext == PostContext.SPACE) {
         Space space = uiActivitiesContainer.getSpace();
         SpaceService spaceService = getApplicationComponent(SpaceService.class);
-        return spaceService.isManager(space, Utils.getOwnerRemoteId());
+        return spaceService.isManager(space, viewerIdentity.getRemoteId());
       }
     } catch (Exception e) {
       LOG.warn("can't not get remoteUserIdentity: remoteUser = " + Utils.getViewerRemoteId());
